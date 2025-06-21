@@ -8,12 +8,11 @@ const currentLevel = document.querySelector(".current-level");
 const highestLevel = document.querySelector(".highest-level");
 const cleared = document.querySelector(".cleared");
 const play = document.querySelector(".play");
+let score = document.querySelector(".score");
 let win = true
 let level = 0
 let gameStart = false;
 let playclicked = 0;
-let screenWidth = window.innerWidth;
-console.log(screenWidth)
 const colors = {
     0 : ['blue',blueButton],
     1 : ['green',greenButton],
@@ -98,9 +97,9 @@ const gameOver = ()  =>{
     let txt ="";
     result.querySelector("span").style.color = "red";
     if (playclicked == 1){
-         txt = `<p><span style="color : red;">GAME OVER</span></p> <p>RESTART</p>`
+         txt = `<p><span style="color : red;">GAME OVER</span></p> <p style = "color : white;">RESTART</p>`
     }else{
-         txt = `<p><span style="color : red;">GAME OVER</span></p> <p>SPACEBAR TO RESTART</p>`
+         txt = `<p><span style="color : red;">GAME OVER</span></p> <p style = "color: white;">SPACEBAR TO RESTART</p>`
     }
     result.innerHTML = txt;
     result.style.visibility = "visible";
@@ -133,6 +132,7 @@ $(document).on("keypress",function(e){
     }
 });
 play.addEventListener("click",()=>{
+    console.log("clicked")
     if(!gameStart){
             playclicked = 1;
             level = 0;
@@ -144,9 +144,11 @@ play.addEventListener("click",()=>{
 })
 
 setTimeout(()=>{
+    let screenWidth = window.innerWidth;
     cleared.style.display = "block";
     document.querySelector("main").style.position = "static";
     cleared.style.backgroundColor = "rgba(0,0,0,0.9)"
+    cleared.style.visibility = "visible";
     cleared.querySelector("div").classList.add("start");
     setTimeout(()=>{
         if(screenWidth <= 600){
@@ -158,7 +160,13 @@ setTimeout(()=>{
         cleared.querySelector("div").classList.remove("start");
         setTimeout(()=>{
             cleared.style.display = "none";
+            if(screenWidth <= 600){play.style.visibility = "visible"};
+            document.querySelector("main").style.visibility = "visible";
             document.querySelector("main").style.position = "relative";
+            buttons.classList.add("load");
+            play.classList.add("load1");
+            score.classList.add("load2");
+            result.classList.add("load3");
         },1500)
     },1000)
 })

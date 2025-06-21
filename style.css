@@ -3,6 +3,10 @@
     font-family: "Michroma", sans-serif;
     margin: 0px;
 }
+body{
+    height: 100vh;
+    overflow: hidden;
+}
 
 header{
     font-size: large;
@@ -12,9 +16,12 @@ header{
     height: 10vh;
     color: white;
     text-shadow:0px 0px 5px rgb(242, 250, 0);
-    background-color: black;
+    background-color: rgb(60, 58, 58);
+    z-index: 100;
 }
-
+body{
+    background-color: rgb(29, 28, 28);
+}
 header h1{
     font-weight: 600;
 }
@@ -25,21 +32,20 @@ main{
     align-items: center;
     position: relative;
     max-height: 80vh;
-    background-color: rgb(105, 103, 103);
+    visibility: hidden;
 }
 .result{
     text-align: center;
     font-size: 30px;
     height: 150px;
     align-content: center;
+    color: white;
+    z-index: -100;
 }
 .result span{
     color: rgb(26, 255, 0);
 }
-main{
-    background-color: rgb(151, 145, 145);
-    background: rgb(205, 200, 205);
-}
+
 .buttons{
     border: solid;
     display: flex;
@@ -55,7 +61,7 @@ main{
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: rgb(27, 29, 27);
+    background-color: rgb(255, 255, 255);
     pointer-events: none;
 }
 button{
@@ -63,6 +69,7 @@ button{
     height: 120px;
     border: solid 2px;
 }
+
 .blue{
     border-top-left-radius: 100%;
     background-color: blue;
@@ -110,6 +117,7 @@ button{
     border-radius: 35px;
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
+    z-index: -100;
 }
 .score div{
     width: 250px;
@@ -125,14 +133,13 @@ button{
     color: rgb(0, 0, 0);
 }
 footer{
-    background-color: black;
+    background-color: rgb(60, 58, 58);
     color: white;
     text-align: center;
     align-content: center;
     height: 10vh;
     font-family: sans-serif;
 }
-
 .toggle{
     animation-name: blink;
     animation-duration: 1s;
@@ -195,25 +202,100 @@ footer{
         transform:scale(1);
     }
 }
+.load{
+    animation-name: loading;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+@keyframes loading{
+    from{
+        transform: scale(0) rotate(360deg);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+.load1{
+    animation-name: loading1;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+@keyframes loading1{
+    from{
+        transform: rotateX(0deg);
+    }
+    to{
+        transform: rotateX(360deg);
+    }
+}
+.load2{
+    animation-name: loading2;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+@keyframes loading2{
+    from{
+        transform: translateY(500px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+.load3{
+    animation-name: loading3;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+@keyframes loading3{
+    from{
+        transform: translateY(-500px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
 .play{
-    border: solid;
+    border: solid white;
+    background-color: rgb(45, 44, 44);
+    color: white;
     height: 50px;
     width: fit-content;
     border-radius: 10px;
     font-size: 20px;
     font-weight: 700;
     visibility: hidden;
+    z-index: 1;
 }
 @media(max-width:600px){
-    
+
+    main{
+        visibility: hidden;
+    }
+    header{
+        height: 10dvh;
+    }
+    .results p{
+        color: white;
+    }
+    main{
+        height: 80dvh;
+    }
+    footer{
+        height: 10dvh;
+    }
     header h1{
         font-size: 20px;
     }
     .result{
         font-size: 20px;
+        color: white;
     }
     .buttons{
-        height: 250px;
+        height: 220px;
         width: 220px;
         row-gap: 10px;
     }
@@ -221,8 +303,10 @@ footer{
         height: 90px;
         width: 90px;
     }
-    .play{
-        visibility: visible;
+    .play:focus{
+        background-color: black;
+        color: white;
+        border: black;
     }
     .score{
         width: 70%;
