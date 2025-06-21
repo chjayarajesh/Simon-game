@@ -1,0 +1,241 @@
+*{
+    box-sizing: border-box;
+    font-family: "Michroma", sans-serif;
+    margin: 0px;
+}
+
+header{
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    color: white;
+    text-shadow:0px 0px 5px rgb(242, 250, 0);
+    background-color: black;
+}
+
+header h1{
+    font-weight: 600;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    max-height: 80vh;
+    background-color: rgb(105, 103, 103);
+}
+.result{
+    text-align: center;
+    font-size: 30px;
+    height: 150px;
+    align-content: center;
+}
+.result span{
+    color: rgb(26, 255, 0);
+}
+main{
+    background-color: rgb(151, 145, 145);
+    background: rgb(205, 200, 205);
+}
+.buttons{
+    border: solid;
+    display: flex;
+    flex-wrap: wrap;
+    width: 280px;
+    height: 300px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 12px;
+    margin: 10px auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgb(27, 29, 27);
+    pointer-events: none;
+}
+button{
+    width: 120px;
+    height: 120px;
+    border: solid 2px;
+}
+.blue{
+    border-top-left-radius: 100%;
+    background-color: blue;
+    filter: blur(1px);
+}
+.green{
+    border-top-right-radius: 100%;
+    background-color: rgb(14, 210, 14);
+    filter: blur(1px);
+}
+.red{
+    border-bottom-left-radius: 100%;
+    background-color: red;
+    filter: blur(1px);
+}
+.yellow{
+    border-bottom-right-radius: 100%;
+    background-color: yellow;
+    filter: blur(1px);
+}
+.red:active{
+    box-shadow: 0px 0px 5px 4px red;
+    border: red;
+}
+.green:active{
+    box-shadow: 0px 0px 5px 4px rgb(4, 225, 4);
+    border: rgb(18, 167, 18);
+}
+.blue:active{
+    box-shadow: 0px 0px 5px 4px blue;
+    border: blue;
+}
+.yellow:active{
+    box-shadow: 0px 0px 5px 4px yellow;
+    border: yellow;
+}
+.score{
+    border: solid;
+    margin : 30px auto;
+    display: flex;
+    justify-content: space-evenly;
+    width: 600px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 35px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+.score div{
+    width: 250px;
+    padding: 5px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+.score p{
+    align-content: center;
+    width: 40px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+    align-content: center;
+    height: 10vh;
+    font-family: sans-serif;
+}
+
+.toggle{
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+@keyframes blink{
+    0%{
+        transform: scale(1);
+        box-shadow: 0px 0px 10px 10px rgb(255, 72, 0);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.cleared{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    background-color: rgba(27, 48, 23, 0.8);
+    color: rgb(233, 105, 26);
+    font-size: 60px;
+    text-shadow: 0px 0px 20px rgb(235, 87, 33);
+}
+.clear{
+    animation-name: clear;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-duration: 0.4s;
+}
+@keyframes clear{
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+.start{
+    animation-timing-function: linear;
+    animation-name: start;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+}
+@keyframes start{
+    0%{
+        transform: scale(0);
+    }
+    60%{
+        transform: scale(1);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+.play{
+    border: solid;
+    height: 50px;
+    width: fit-content;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    visibility: hidden;
+}
+@media(max-width:600px){
+    
+    header h1{
+        font-size: 20px;
+    }
+    .result{
+        font-size: 20px;
+    }
+    .buttons{
+        height: 250px;
+        width: 220px;
+        row-gap: 10px;
+    }
+    .buttons button{
+        height: 90px;
+        width: 90px;
+    }
+    .play{
+        visibility: visible;
+    }
+    .score{
+        width: 70%;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    .score div{
+        font-size: 15px;
+        align-items: center;
+        align-content: center;
+    }
+    .cleared{
+        font-size: 30px;
+    }
+    
+}
